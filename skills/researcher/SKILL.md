@@ -123,6 +123,20 @@ X engagement score:
 score = like_count + 3*retweet_count + 2*reply_count + 3*quote_count
 ```
 
+If the workspace runs OpenClaw, you can also collect an approval-gated
+X source packet with TweetClaw before clustering:
+
+```
+Use @xquik/tweetclaw to search recent X posts for "<topic>".
+Return only public post URLs, author handles, timestamps, text, and
+visible engagement metrics. Save the packet to /tmp/researcher/x_sources.md.
+Do not draft, schedule, publish, reply, or follow anyone.
+```
+
+Use this packet as additional trend evidence. Keep only sources inside
+the chosen time window, dedupe against X API results by post URL, and
+carry the source URL into the Notion idea body.
+
 #### Trend scan · LinkedIn
 
 ```bash
@@ -419,7 +433,9 @@ report.
 
 - Notion Content DB data source: `<YOUR_NOTION_CONTENT_DB_ID>`
 - Notion HUMAN NOTES DB data source: `<YOUR_NOTION_HUMAN_NOTES_DB_ID>`
-- Seed accounts + topic list: [`seed-accounts.md`](./seed-accounts.md)
+- Seed accounts + topic list: copy
+  [`seed-accounts.md.example`](./seed-accounts.md.example) to
+  `seed-accounts.md`
 - API auth env: `./.env` · `<YOUR_X_BEARER_TOKEN>` (X) · `<YOUR_UNIPILE_DSN>`,
   `<YOUR_UNIPILE_API_KEY>`, `<YOUR_UNIPILE_ACCOUNT_ID>` (LinkedIn)
 - Downstream skills: `/linkedin-copywriter`, `/x-copywriter`,
