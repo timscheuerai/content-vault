@@ -134,8 +134,11 @@ Do not draft, schedule, publish, reply, or follow anyone.
 ```
 
 Use this packet as additional trend evidence. Keep only sources inside
-the chosen time window, dedupe against X API results by post URL, and
-carry the source URL into the Notion idea body.
+the chosen time window, dedupe against X API results by status ID, and
+carry the source URL into the Notion idea body. Treat
+`x.com/<handle>/status/<id>` and `twitter.com/<handle>/status/<id>` as the
+same source when the status ID matches, even if tracking parameters or hosts
+differ.
 
 #### Trend scan · LinkedIn
 
