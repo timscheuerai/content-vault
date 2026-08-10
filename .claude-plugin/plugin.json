@@ -1,7 +1,7 @@
 {
   "name": "content-vault",
-  "version": "0.3.0",
-  "description": "14 Claude Code skills + a pre-configured Obsidian vault that run a complete content engine. LinkedIn / X / YouTube (script, description, thumbnail, publish) / long-form / newsletters / lead magnets / graphics / motion video. Personalize once, draft forever. Content tracked in a native Obsidian Base, searchable with qmd. Built by Oxygen, free under MIT.",
+  "version": "0.4.0",
+  "description": "19 Claude Code skills + a pre-configured Obsidian vault that run a complete content engine. LinkedIn / X / YouTube (script, description, thumbnail, publish) / long-form / newsletters / lead magnets / graphics / motion video / short-form video editing (cut, audio, captions, motion graphics, QA gate). Personalize once, draft forever. Content tracked in a native Obsidian Base, searchable with qmd. Built by Oxygen, free under MIT.",
   "author": {
     "name": "Oxygen",
     "url": "https://oxygen-agent.com"
@@ -19,6 +19,10 @@
     "lead-magnet",
     "graphics",
     "motion-video",
+    "shorts",
+    "video-editing",
+    "captions",
+    "ffmpeg",
     "remotion",
     "elevenlabs",
     "obsidian",

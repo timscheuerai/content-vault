@@ -1,6 +1,6 @@
 # content-vault
 
-14 Claude Code skills + a pre-configured Obsidian vault. Same setup we use to run our content.
+19 Claude Code skills + a pre-configured Obsidian vault. Same setup we use to run our content.
 
 Free. MIT. Fork it.
 
@@ -9,6 +9,7 @@ researcher            repurpose             lead-magnet-creator
 linkedin-copywriter   x-copywriter          long-form              newsletter-writer
 youtube-script        youtube-description   youtube-thumbnail      youtube-publisher
 graphics-designer     launch-video          video-use
+shorts-edit           shorts-cut            shorts-audio           shorts-motion   shorts-qa
 ```
 
 ## Two ways to run this
@@ -71,8 +72,10 @@ Done. Skills are personalized.
 Only if you use them. Each has a `## SETUP` block in its `SKILL.md`.
 
 ```bash
-export ELEVENLABS_API_KEY=...   # youtube-description (transcripts), video-use
+export ELEVENLABS_API_KEY=...   # youtube-description (transcripts), video-use, shorts-*
 pip install rembg               # youtube-thumbnail (face cutouts)
+brew install ffmpeg             # shorts-*, video-use
+pip install pillow numpy        # shorts-* (the graphics + caption renderers)
 ```
 
 `youtube-publisher` talks to your own channel, so it needs your Google
@@ -108,6 +111,38 @@ Walkthrough is in the skill.
 **launch-video.** 30-60s motion graphics. Remotion + ElevenLabs.
 
 **video-use.** Edit any video by chat. Cuts on word boundaries, grades, burns subtitles. Vendored from [browser-use/video-use](https://github.com/browser-use/video-use).
+
+**shorts-edit** (+ `shorts-cut`, `shorts-audio`, `shorts-motion`, `shorts-qa`). Raw talking-head recordings → postable vertical shorts. Drops the retakes and the dead air, cleans the audio, burns word-by-word captions, adds cue-anchored motion graphics — in **one** video encode — then proves it with a 7-check QA gate. Built on 14 OBS recordings, 57 minutes of raw. Every rule in it exists because a defect got through review looking fine. See [Editing shorts](#editing-shorts).
+
+## Editing shorts
+
+The five `shorts-*` skills are one pipeline. Put your raw recordings in `raw/`, then:
+
+```
+/shorts-edit   cut these OBS takes into vertical shorts
+```
+
+```
+<project>/
+  raw/     source recordings (untouched)
+  clips/   <name>_final.mp4   <- deliverables
+  edit/    every decision, as a file you can inspect and re-run
+```
+
+`shorts-edit` orchestrates; `shorts-cut` picks the last complete attempt of each beat and
+kills dead air; `shorts-audio` fixes the two audio traps that cost hours; `shorts-motion`
+draws cue-anchored graphics; `shorts-qa` is the gate.
+
+The gate is the point. Every bug in this pipeline's history was invisible to eyeballs and
+obvious to a measurement — a caption verifier that sampled long words reported perfect
+while short words were silently wrong; a tier grade was revealed 5.7s before it was
+spoken and every frame looked fine in isolation. So nothing ships until `qa.py` passes.
+Not "looks good" — passes.
+
+Graphics render against `skills/shorts-edit/assets/BRAND.md`, which ships conformant with
+a neutral palette. Edit it to your brand (or point `SHORTS_BRAND_MD` at the one you
+already keep) and `brand_lint.py` fails until the renderers follow — including the rule
+no type checker can catch: exactly one accent colour per graphic.
 
 ## The Obsidian side
 
