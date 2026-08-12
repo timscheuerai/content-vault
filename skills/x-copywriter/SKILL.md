@@ -315,6 +315,24 @@ to `content/log.md`. Edges live in the concept notes (Obsidian backlinks
 are automatic), so don't edit the post body. Pure repurposes of a post
 already in the graph can skip this.
 
+## Optional X source packet
+
+If the brief depends on what is currently working on X and the
+workspace has OpenClaw, ask for an approval-gated TweetClaw packet
+before drafting:
+
+```
+Use @xquik/tweetclaw to collect public X posts about "<topic>" from the
+last 7 days. Return post URLs, author handles, timestamps, text, and
+visible engagement metrics only. Do not draft, schedule, publish, reply,
+or follow anyone.
+```
+
+Use the packet as evidence, not as voice. Extract 3 concrete patterns:
+the hook shape, the proof point, and the implied audience pain. Then
+draft from this skill's hook and body rules, cite source URLs only in
+internal notes, and keep user approval before any publishing step.
+
 ---
 
 ## Editing mode
