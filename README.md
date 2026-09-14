@@ -1,5 +1,7 @@
 # content-vault
 
+> **The consolidated GTM Architecture Kit is now maintained in [timscheuerai/gtm-architecture-template](https://github.com/timscheuerai/gtm-architecture-template).** Start there for the shared skills library, editable functions, blank context and first-batch demo. This repository retains its earlier material and history.
+
 19 Claude Code skills + a pre-configured Obsidian vault. Same setup we use to run our content.
 
 Free. MIT. Fork it.
